@@ -1,0 +1,17 @@
+import json
+import csv
+file1=open(r"C:\Users\J0223097\Downloads\json_file.json")
+data=json.load(file1)
+
+file2=open(r"C:\Users\J0223097\Downloads\csv_file.csv","w")
+write=csv.writer(file2)
+employee_detals=data['emp_details']
+count=0
+for emp in employee_detals:
+    if count==0:
+        header=emp.keys()
+        write.writerow(header)
+        count+=1
+        print(emp)
+    write.writerow(emp.values())
+    file2.close()
